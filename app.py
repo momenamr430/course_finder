@@ -3,7 +3,7 @@ from serpapi import GoogleSearch
 
 app = Flask(__name__)
 
-API_KEY = "6f51e7662bb7e1a670e8732a727e7c840bf4e151a999c3e4f4ca8790b49b3586"
+API_KEY = "api key"
 
 PLATFORM_MAP = {
     "coursera": {"name": "Coursera",  "color": "#0056D2"},
