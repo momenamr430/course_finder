@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CourseFind — Discover What's Next</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="/">Course<span>Find</span></a>
+    <div class="nav-links">
+      <span class="nav-tag">Coursera</span>
+      <span class="nav-tag">Udemy</span>
+      <span class="nav-tag">edX</span>
+      <span class="nav-tag">Udacity</span>
+      <span class="nav-tag">LinkedIn</span>
+      <span class="nav-tag">YouTube</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────── -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">6 Platforms · 1 Search</div>
+    <h1>Find Your Next<br><span class="gradient-text">Course</span></h1>
+    <p class="hero-sub">Search across Coursera, Udemy, edX, Udacity, LinkedIn Learning & YouTube — all at once.</p>
+
+    <form class="search-form" id="searchForm">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="What do you want to learn? (e.g. Python, Machine Learning...)" autocomplete="off">
+        <button type="submit" id="searchBtn">
+          <span class="btn-text">Search</span>
+          <span class="btn-loader" hidden>
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</header>
+
+<!-- ── RESULTS ───────────────────────────── -->
+<main id="main" hidden>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stats-left">
+        <span id="statsText">—</span>
+      </div>
+      <div class="platform-pills" id="platformPills"></div>
+    </div>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="coursera">Coursera</button>
+      <button class="filter-btn" data-filter="udemy">Udemy</button>
+      <button class="filter-btn" data-filter="edx">edX</button>
+      <button class="filter-btn" data-filter="udacity">Udacity</button>
+      <button class="filter-btn" data-filter="linkedin">LinkedIn</button>
+      <button class="filter-btn" data-filter="youtube">YouTube</button>
+    </div>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="results-wrap">
+    <div class="cards-grid" id="cardsGrid"></div>
+
+    <!-- Load more -->
+    <div class="load-more-wrap" id="loadMoreWrap" hidden>
+      <button class="load-more-btn" id="loadMoreBtn">
+        Load More Results
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon">🔍</div>
+      <h3>No results found</h3>
+      <p>Try a different keyword or broaden your search</p>
+    </div>
+  </div>
+</main>
+
+<!-- ── CARD TEMPLATE ─────────────────────── -->
+<template id="cardTpl">
+  <article class="card" data-platform="">
+    <div class="card-top">
+      <span class="card-platform"></span>
+      <a class="card-link" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </a>
+    </div>
+    <h3 class="card-title"></h3>
+    <p class="card-domain"></p>
+    <p class="card-snippet"></p>
+  </article>
+</template>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
